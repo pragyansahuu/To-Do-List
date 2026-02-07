@@ -1,0 +1,669 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 10px;
+  color: white;
+  font-family: "Ubuntu";
+  letter-spacing: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Greeting Section */
+.greeting-section {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 5px;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.greeting-text {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+}
+
+.greeting-image {
+  font-size: 80px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.date-time-display {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.list {
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin: 40px 0;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  padding-right: 50px;
+}
+
+/* Checkbox Styling */
+input[type="checkbox"] {
+  visibility: hidden;
+}
+
+input[type="checkbox"]::after {
+  content: "";
+  display: block;
+  height: 40px;
+  width: 40px;
+  border: 3px solid lightblue;
+  border-radius: 50%;
+  background-color: white;
+  visibility: visible;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✓";
+  background-color: lightblue;
+  color: white;
+  font-size: 26px;
+  line-height: 38px;
+  text-align: center;
+  animation: bounce 0.3s ease;
+}
+
+label {
+  position: absolute;
+  left: 55px;
+  top: 8px;
+  max-width: calc(100% - 100px);
+  word-wrap: break-word;
+}
+
+input[type="checkbox"]:checked ~ label {
+  text-decoration: line-through;
+}
+
+/* Input box */
+#listItem {
+  width: 100%;
+  height: 35px;
+  border: 2px solid lightblue;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+/* Delete button */
+.delete-btn {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  background-color: #ff6666;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+.delete-btn:hover {
+  background-color: #ff3333;
+  transform: scale(1.1);
+}
+
+/* Save button */
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Save button */
+.save-btn {
+  flex: 1;
+  height: 40px;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.save-btn:hover {
+  background-color: #764ba2;
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+}
+
+.save-btn:active {
+  transform: translateY(0);
+}
+
+/* Share button */
+.share-btn {
+  flex: 1;
+  height: 40px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.share-btn:hover {
+  background-color: #ff0000;
+  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
+  transform: translateY(-2px);
+}
+
+.share-btn:active {
+  transform: translateY(0);
+}
+
+/* Saved Files Section */
+.saved-files-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.saved-files-section h3 {
+  color: white;
+  text-align: center;
+  margin-bottom: 15px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+}
+
+.saved-files-list {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.saved-files-list li {
+  padding: 10px 15px;
+  margin: 8px 0;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.file-list-item {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.file-list-item:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateX(5px);
+}
+
+.no-files {
+  text-align: center;
+  color: #999;
+  padding: 20px !important;
+  margin: 0 !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.file-name {
+  font-weight: bold;
+  color: #667eea;
+}
+
+.file-date {
+  font-size: 12px;
+  color: #999;
+  margin-top: 3px;
+}
+
+.file-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.file-delete-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.3s ease;
+}
+
+.file-delete-btn:hover {
+  background-color: #ff0000;
+  transform: scale(1.05);
+}
+
+/* Share Modal */
+.share-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease-in;
+}
+
+.share-modal.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.share-modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+  animation: slideUp 0.3s ease-in;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+}
+
+.close-modal:hover {
+  color: #000;
+}
+
+.share-modal-content h2 {
+  text-align: center;
+  color: #667eea;
+  margin-bottom: 20px;
+  font-family: "Ubuntu";
+}
+
+.share-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.share-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  gap: 8px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 14px;
+}
+
+.share-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.share-icon {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.share-icon-svg {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.share-option.whatsapp {
+  background-color: #25d366;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+.share-option.whatsapp:hover {
+  background-color: #1eab4a;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+}
+
+.share-option.email {
+  background: linear-gradient(135deg, #ea4335 0%, #fbbc04 25%, #4285f4 50%, #34a853 75%, #ea4335 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+  box-shadow: 0 4px 12px rgba(234, 67, 53, 0.4);
+}
+
+.share-option.email:hover {
+  box-shadow: 0 8px 25px rgba(234, 67, 53, 0.5);
+  transform: translateY(-5px) scale(1.05);
+}
+
+.share-option.telegram {
+  background-color: #0088cc;
+  box-shadow: 0 4px 12px rgba(0, 136, 204, 0.4);
+}
+
+.share-option.telegram:hover {
+  background-color: #006699;
+  box-shadow: 0 8px 25px rgba(0, 136, 204, 0.5);
+}
+
+.share-option.twitter {
+  background-color: #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.share-option.twitter:hover {
+  background-color: #1a1a1a;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.share-option.copy {
+  background-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.share-option.copy:hover {
+  background-color: #764ba2;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Add button */
+#button {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  cursor: pointer;
+  text-align: right;
+  margin-top: -38px;
+  margin-right: 5px;
+}
+
+/* Panda Decorations */
+.panda-decor {
+  position: fixed;
+  font-size: 80px;
+  opacity: 0.8;
+  z-index: 10;
+}
+
+.left-panda {
+  left: 30px;
+  top: 50px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.right-panda {
+  right: 30px;
+  top: 50px;
+  animation: floatReverse 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* View File Modal */
+.view-file-content {
+  max-width: 500px !important;
+}
+
+.view-file-content h2 {
+  color: #667eea;
+  margin-bottom: 15px;
+}
+
+.file-view-info {
+  background-color: #f0f0f0;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.file-view-info p {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.file-view-tasks {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 2px solid #e0e0e0;
+}
+
+.file-task-item {
+  padding: 10px 12px;
+  margin: 8px 0;
+  background-color: white;
+  border-left: 4px solid #667eea;
+  border-radius: 4px;
+  font-family: "Josefin Sans", sans-serif;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-task-item.completed {
+  border-left-color: #25d366;
+  background-color: #f0fff0;
+}
+
+.file-task-item.completed .task-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.task-status {
+  font-size: 16px;
+  min-width: 20px;
+}
+
+.task-text {
+  flex: 1;
+}
+
+.no-tasks-message {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.file-view-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.load-file-btn,
+.download-file-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.load-file-btn {
+  background-color: #667eea;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.load-file-btn:hover {
+  background-color: #764ba2;
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+}
+
+.download-file-btn {
+  background-color: #25d366;
+  color: white;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.download-file-btn:hover {
+  background-color: #1eab4a;
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+  transform: translateY(-2px);
+}

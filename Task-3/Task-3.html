@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="Task-3.css" />
+
+    <title>To Do List</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="greeting-section">
+        <div class="greeting-text">👋 Hello User!</div>
+        <div class="greeting-image">📋</div>
+        <div class="date-time-display" id="dateTimeDisplay">Loading...</div>
+      </div>
+      <div class="panda-decor left-panda">🐼</div>
+      <h1>TO DO LIST</h1>
+      <div class="panda-decor right-panda">🐼</div>
+
+      <div class="list">
+        <ul id="todoList">
+        </ul>
+
+        <input type="text" id="listItem" maxlength="100" placeholder="Add new task" />
+        <div id="button">+</div>
+        <div class="button-group">
+          <button id="saveBtn" class="save-btn">💾 Save</button>
+          <button id="shareBtn" class="share-btn">📤 Share</button>
+        </div>
+
+        <!-- Saved Files Section -->
+        <div class="saved-files-section">
+          <h3>📁 Saved Files</h3>
+          <ul id="savedFilesList" class="saved-files-list">
+            <li class="no-files">No saved files yet</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="shareModal" class="share-modal">
+      <div class="share-modal-content">
+        <button class="close-modal">&times;</button>
+        <h2>Share Your To-Do List</h2>
+        <div class="share-options">
+          <a href="#" id="whatsappShare" class="share-option whatsapp">
+            <svg class="share-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="45" fill="white" stroke="white" stroke-width="8"/>
+              <path d="M 50 5 C 25.15 5 5 25.15 5 50 C 5 60 8 69 13 76 L 10 95 L 30 92 C 37 97 45 100 50 100 C 74.85 100 95 80.85 95 55 C 95 30.15 74.85 5 50 5 Z M 71 68 C 70 71 66 74 61 75 C 58 75 55 75 50 73 C 36 68 25 57 25 43 C 25 30 32 19 42 19 C 45 19 48 20 50 22 C 53 25 60 35 62 39 C 63 42 62 45 60 47 C 59 48 57 50 55 51 C 54 52 56 55 57 58 C 58 62 60 65 64 67 C 67 68 70 68 71 68 Z" fill="white"/>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+          <a href="#" id="emailShare" class="share-option email">
+            <span class="share-icon">📧</span>
+            <span>Gmail</span>
+          </a>
+          <a href="#" id="telegramShare" class="share-option telegram">
+            <svg class="share-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="50" fill="white"/>
+              <circle cx="50" cy="50" r="45" fill="#0088cc"/>
+              <g fill="white">
+                <path d="M 35 50 L 60 40 C 61 39 62 40 61 41 L 53 65 C 52 67 50 67 49 66 L 45 55 L 35 60 C 34 60 33 59 34 58 Z"/>
+              </g>
+            </svg>
+            <span>Telegram</span>
+          </a>
+          <a href="#" id="twitterShare" class="share-option twitter">
+            <span class="share-icon">𝕏</span>
+            <span>Twitter</span>
+          </a>
+          <a href="#" id="copyShare" class="share-option copy">
+            <span class="share-icon">📋</span>
+            <span>Copy</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- View File Modal -->
+    <div id="viewFileModal" class="share-modal">
+      <div class="share-modal-content view-file-content">
+        <button class="close-modal">&times;</button>
+        <h2 id="fileViewTitle">Saved To-Do List</h2>
+        <div class="file-view-info">
+          <p id="fileViewDate"></p>
+        </div>
+        <div id="fileViewTasks" class="file-view-tasks">
+          <!-- Tasks will be displayed here -->
+        </div>
+        <div class="file-view-actions">
+          <button id="loadFileBtn" class="load-file-btn">📥 Load Tasks</button>
+          <button id="downloadFileBtn" class="download-file-btn">⬇️ Download</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- JavaScript -->
+    <script src="Task-3.js"></script>
+  </body>
+</html>
